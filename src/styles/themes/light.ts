@@ -11,6 +11,7 @@ const light = {
     gray: '#93918F',
 
     info: '#A18D60',
+    yellow40: '#E9C87E',
   },
 };
 

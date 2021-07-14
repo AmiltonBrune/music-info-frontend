@@ -1,11 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { RouteComponentProps, withRouter } from 'react-router';
 
 import Input from '../Input';
 import Button from '../Button';
 
-import email from '../../assets/email.svg';
-import password from '../../assets/password.svg';
+import emailIcon from '../../assets/email.svg';
+import passwordIcon from '../../assets/password.svg';
+
+import { useAuth } from 'hooks/auth';
 
 import {
   Container,
@@ -18,6 +20,11 @@ import {
 type SigninRigthComponetProps = RouteComponentProps;
 
 const SigninRigth: React.FC<SigninRigthComponetProps> = ({ history }) => {
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+
+  const { signIn } = useAuth();
+
   const goRegister = () => history.push('/signup');
 
   return (
@@ -25,15 +32,25 @@ const SigninRigth: React.FC<SigninRigthComponetProps> = ({ history }) => {
       <Content>
         <Label>Email</Label>
         <InputContainer>
-          <img src={email} alt='email' />
-          <Input placeholder='Insira seu email...' type='email' />
+          <img src={emailIcon} alt='email' />
+          <Input
+            placeholder='Insira seu email...'
+            type='email'
+            required
+            onChange={(e) => setEmail(e.target.value)}
+          />
         </InputContainer>
         <Label>Senha</Label>
         <InputContainer>
-          <img src={password} alt='Senha' />
-          <Input placeholder='Insira sua senha...' type='password' />
+          <img src={passwordIcon} alt='Senha' />
+          <Input
+            placeholder='Insira sua senha...'
+            type='password'
+            required
+            onChange={(e) => setPassword(e.target.value)}
+          />
         </InputContainer>
-        <Button>entrar</Button>
+        <Button onClick={() => signIn(email, password)}>entrar</Button>
         <MessageContainer>
           <span onClick={goRegister}>
             Não possui uma conta? <b>inscrever-se</b>

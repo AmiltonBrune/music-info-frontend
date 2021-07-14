@@ -20,6 +20,7 @@ interface ITheme {
     gray: string;
 
     info: string;
+    yellow40: string;
   };
 }
 
