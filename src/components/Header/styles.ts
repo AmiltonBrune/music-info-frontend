@@ -47,8 +47,11 @@ export const InputContainer = styled.div`
   }
 
   > img {
+    width: 20px;
+    height: 20px;
+
     position: absolute;
-    top: 24px;
+    top: 27px;
     right: 25px;
   }
 `;
