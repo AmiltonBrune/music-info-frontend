@@ -32,6 +32,7 @@ export const InputContainer = styled.div`
 
   > input[type='email'] {
     padding-left: 70px;
+    font-size: 16px;
   }
 
   > input[type='password'] {
