@@ -1,7 +1,7 @@
 import React from 'react';
 
-import SigninLeft from 'components/SigninLeft';
-import SigninRigth from 'components/SigninRigth';
+import SigninLeft from 'components/SignLeft';
+import SigninComponent from 'components/Signin';
 
 import { Container } from './styles';
 
@@ -9,7 +9,7 @@ const Signin: React.FC = () => {
   return (
     <Container>
       <SigninLeft />
-      <SigninRigth />
+      <SigninComponent />
     </Container>
   );
 };

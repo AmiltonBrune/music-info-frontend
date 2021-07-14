@@ -1,4 +1,5 @@
 import React from 'react';
+import { RouteComponentProps, withRouter } from 'react-router';
 
 import Input from '../Input';
 import Button from '../Button';
@@ -14,7 +15,11 @@ import {
   MessageContainer,
 } from './styles';
 
-const SigninRigth: React.FC = () => {
+type SigninRigthComponetProps = RouteComponentProps;
+
+const SigninRigth: React.FC<SigninRigthComponetProps> = ({ history }) => {
+  const goRegister = () => history.push('/signup');
+
   return (
     <Container>
       <Content>
@@ -26,11 +31,11 @@ const SigninRigth: React.FC = () => {
         <Label>Senha</Label>
         <InputContainer>
           <img src={password} alt='Senha' />
-          <Input type='password' />
+          <Input placeholder='Insira sua senha...' type='password' />
         </InputContainer>
         <Button>entrar</Button>
         <MessageContainer>
-          <span>
+          <span onClick={goRegister}>
             Não possui uma conta? <b>inscrever-se</b>
           </span>
         </MessageContainer>
@@ -39,4 +44,4 @@ const SigninRigth: React.FC = () => {
   );
 };
 
-export default SigninRigth;
+export default withRouter(SigninRigth);

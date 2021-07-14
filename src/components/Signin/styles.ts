@@ -45,7 +45,16 @@ export const MessageContainer = styled.div`
   text-align: center;
   font-size: 20px;
 
+  cursor: pointer;
+
+  transition: opacity 0.3s;
+
   > span > b {
     color: ${(props) => props.theme.colors.primary};
+
+    &:hover {
+      color: ${(props) => props.theme.colors.secondary};
+      opacity: 0.7;
+    }
   }
 `;
