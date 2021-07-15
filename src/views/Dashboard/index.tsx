@@ -1,11 +1,21 @@
 import React from 'react';
 
-import { Container } from './styles';
+import ListTopMusic from 'components/ListTopMusic';
+import RecentlyAdded from 'components/RecentlyAdded';
+import CardLastMusic from 'components/CardLastMusic';
+
+import lastSong from 'mocks/lastSong';
+
+import { Container, Title } from './styles';
 
 const Dashboard: React.FC = () => {
   return (
     <Container>
-      <h1>Dashboard</h1>
+      <CardLastMusic music={lastSong} />
+      <Title>Top Músicas da Semana</Title>
+      <ListTopMusic />
+      <Title>Adicionados Recentemente</Title>
+      <RecentlyAdded />
     </Container>
   );
 };
