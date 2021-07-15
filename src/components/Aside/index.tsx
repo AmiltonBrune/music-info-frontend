@@ -20,14 +20,9 @@ import {
 
 const Aside: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
-  const [isHide, setIsHide] = useState(false);
 
   const toggleIsVisible = () => {
     setIsVisible(!isVisible);
-  };
-
-  const toggleIsHide = () => {
-    setIsHide(!isHide);
   };
 
   return (

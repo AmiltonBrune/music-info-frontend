@@ -1,6 +1,5 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { CgClose } from 'react-icons/cg';
-import { BsPlusSquare } from 'react-icons/bs';
 
 import Button from 'components/Button';
 import Input from 'components/Input';
@@ -13,12 +12,6 @@ interface IViewLetterProps {
 }
 
 const Menu: React.FC<IViewLetterProps> = ({ hide, toggle }) => {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const toggleIsOpen = () => {
-    setIsOpen(!isOpen);
-  };
-
   return (
     <>
       {hide && (
