@@ -7,6 +7,7 @@ import musicDisc from '../../assets/musicDisc.svg';
 
 import Button from 'components/Button';
 import Bagde from 'components/Bagde';
+import ViewLetter from 'components/ViewLetter';
 
 import {
   Container,
@@ -37,6 +38,11 @@ interface ICardLastMusicPros {
 
 const CardLastMusic: React.FC<ICardLastMusicPros> = ({ music }) => {
   const [likeMusic, setLikeMusic] = useState(music.like);
+  const [isHide, setIsHide] = useState(false);
+
+  const toggleIsHide = () => {
+    setIsHide(!isHide);
+  };
 
   const handleLikeMusic = () => {
     setLikeMusic(!likeMusic);
@@ -52,7 +58,7 @@ const CardLastMusic: React.FC<ICardLastMusicPros> = ({ music }) => {
             <span>{`${music.artist} (${music.album?.name})`}</span>
           </ContainerTitle>
           <ContainerButtons>
-            <Button>ver letra</Button>
+            <Button onClick={toggleIsHide}>ver letra</Button>
             <ButtonIcon onClick={handleLikeMusic}>
               {likeMusic ? <TiHeartFullOutline /> : <TiHeartOutline />}
             </ButtonIcon>
@@ -69,6 +75,7 @@ const CardLastMusic: React.FC<ICardLastMusicPros> = ({ music }) => {
       <ContainerImage>
         <Img src={imageDash} alt='Dash' />
       </ContainerImage>
+      <ViewLetter hide={isHide} toggle={toggleIsHide} />
     </Container>
   );
 };
