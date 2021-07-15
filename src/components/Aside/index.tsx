@@ -6,6 +6,8 @@ import CardFavoriteSongs from 'components/CardFavoriteSongs';
 import DropMenu from 'components/DropMenu';
 import DropMenuItem from 'components/DropMenuItem';
 
+import { useAuth } from 'hooks/auth';
+
 import userPhoto from '../../assets/user.svg';
 import favoriteMusics from 'mocks/favoriteMusics';
 
@@ -20,6 +22,11 @@ import {
 
 const Aside: React.FC = () => {
   const [isVisible, setIsVisible] = useState(false);
+  const [user] = useState(() => {
+    return localStorage.getItem('@music-info:user');
+  });
+
+  const { signOut } = useAuth();
 
   const toggleIsVisible = () => {
     setIsVisible(!isVisible);
@@ -28,7 +35,7 @@ const Aside: React.FC = () => {
   return (
     <Container>
       <Profile onClick={toggleIsVisible}>
-        <UserTitle>Amilton Brune</UserTitle>
+        <UserTitle>{user}</UserTitle>
         <Photo src={userPhoto} alt='User' />
       </Profile>
       <Title>Minhas músicas favoritas</Title>
@@ -38,11 +45,11 @@ const Aside: React.FC = () => {
         ))}
       </ContainerMusic>
       <DropMenu visible={isVisible} toggle={toggleIsVisible}>
-        <DropMenuItem>
+        <DropMenuItem onClick={() => {}}>
           <FaUserCircle />
           <span>Meus dados</span>
         </DropMenuItem>
-        <DropMenuItem>
+        <DropMenuItem onClick={signOut}>
           <HiOutlineLogout />
           <span>Sair</span>
         </DropMenuItem>
