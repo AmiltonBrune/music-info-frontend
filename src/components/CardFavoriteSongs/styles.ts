@@ -30,7 +30,7 @@ export const Container = styled.div`
     border: none;
 
     > div > div > p {
-      color: ${(props) => props.theme.colors.white};
+      color: ${(props) => props.theme.colors.lightGray};
     }
 
     > svg {

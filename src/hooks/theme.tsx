@@ -3,7 +3,6 @@ import React, { createContext, useState, useContext } from 'react';
 import light from 'styles/themes/light';
 
 interface IThemeContext {
-  toggleTheme(): void;
   theme: ITheme;
 }
 
@@ -18,6 +17,7 @@ interface ITheme {
     white: string;
     black: string;
     gray: string;
+    lightGray: string;
 
     info: string;
     yellow40: string;
@@ -27,22 +27,15 @@ interface ITheme {
 const ThemeContext = createContext<IThemeContext>({} as IThemeContext);
 
 const ThemeProvider: React.FC = ({ children }) => {
-  const [theme, setTheme] = useState<ITheme>(() => {
+  const [theme] = useState<ITheme>(() => {
     const themeSaved = localStorage.getItem('@music-info:theme');
 
     if (themeSaved) return JSON.parse(themeSaved);
     else return light;
   });
 
-  const toggleTheme = () => {
-    setTheme(light);
-    localStorage.setItem('@music-info:theme', JSON.stringify(light));
-  };
-
   return (
-    <ThemeContext.Provider value={{ toggleTheme, theme }}>
-      {children}
-    </ThemeContext.Provider>
+    <ThemeContext.Provider value={{ theme }}>{children}</ThemeContext.Provider>
   );
 };
 

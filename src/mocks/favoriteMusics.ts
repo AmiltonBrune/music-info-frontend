@@ -13,7 +13,7 @@ const favoriteMusics = [
   },
   {
     name: 'Enter Sandman',
-    artist: 'Iron Maiden',
+    artist: 'Metalica',
     photo: 'assets/mocks/metalica.png',
     like: true,
   },
@@ -32,7 +32,7 @@ const favoriteMusics = [
   {
     name: 'Toxity',
     artist: 'System Of A Down',
-    photo: 'assets/mocks/fearOfTheDark.png',
+    photo: 'assets/mocks/soad.png',
     like: true,
   },
 ];

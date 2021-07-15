@@ -8,6 +8,7 @@ const light = {
 
     white: '#FFFFFF',
     black: '#0B0C10',
+    lightGray: '#F8F8F8',
     gray: '#93918F',
 
     info: '#A18D60',

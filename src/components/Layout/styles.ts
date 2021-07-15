@@ -17,7 +17,6 @@ export const Container = styled.div`
     'CT AS';
 
   height: 100vh;
-  min-width: 280px;
 
   background-color: #f7f2ec;
 `;

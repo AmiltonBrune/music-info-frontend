@@ -57,6 +57,6 @@ export const InputContainer = styled.div`
 `;
 
 export const Img = styled.img`
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
 `;
