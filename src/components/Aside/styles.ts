@@ -4,6 +4,8 @@ export const Container = styled.div`
   grid-area: AS;
 
   background-color: ${(props) => props.theme.colors.secondary};
+
+  position: relative;
 `;
 
 export const Profile = styled.div`
