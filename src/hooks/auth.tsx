@@ -1,5 +1,7 @@
 import React, { createContext, useState, useContext } from 'react';
 
+import { login } from 'services/Auth';
+
 interface IAuthContext {
   logged: boolean;
   signIn(email: string, password: string): void;
@@ -15,17 +17,27 @@ const AuthProvider: React.FC = ({ children }) => {
     return !!isLogged;
   });
 
-  const signIn = (email: string, password: string) => {
-    if (email === 'usuario@teste.com' && password === '1234') {
+  const signIn = async (email: string, password: string) => {
+    try {
+      const {
+        data: { user, token },
+      } = await login({ email, password });
+
       localStorage.setItem('@music-info:logged', 'true');
+      localStorage.setItem('@music-info:token', token);
+      localStorage.setItem('@music-info:user', user.name);
+
       setLogged(true);
-    } else {
+    } catch (error) {
       alert('Senha ou usuário inválidos!');
     }
   };
 
   const signOut = () => {
     localStorage.removeItem('@music-info:logged');
+    localStorage.removeItem('@music-info:token');
+    localStorage.removeItem('@music-info:user');
+
     setLogged(false);
   };
 
