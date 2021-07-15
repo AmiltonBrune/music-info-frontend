@@ -12,9 +12,13 @@ export const Container = styled.div`
 
 export const Content = styled.div`
   width: 450px;
-  height: 400px;
 
   padding: 30px;
+
+  > button:disabled {
+    opacity: 0.7;
+    cursor: none;
+  }
 `;
 
 export const Label = styled.label`
@@ -28,6 +32,11 @@ export const InputContainer = styled.div`
     position: absolute;
     top: 28px;
     left: 20px;
+  }
+
+  > input[type='text'] {
+    padding-left: 70px;
+    font-size: 16px;
   }
 
   > input[type='email'] {

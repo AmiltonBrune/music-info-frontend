@@ -2,8 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const DropMenuItem: React.FC = ({ children }) => {
-  return <Container>{children}</Container>;
+interface IDropMenuItem {
+  onClick(): void;
+}
+
+const DropMenuItem: React.FC<IDropMenuItem> = ({ children, onClick }) => {
+  return <Container onClick={onClick}>{children}</Container>;
 };
 
 export default DropMenuItem;
